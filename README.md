@@ -17,6 +17,21 @@
 <p>-Kopplung und Kohäsion, damit zukünftige Änderungen nur lokale Auswirkungen haben</p>
 <p>-Testbarkeit , so dass es möglich wird, die korrekte Arbeitsweise des Codes für die Zukunft durch Regressionstests abzusichern</p> 
 <p></p>
+
+<h5>Vorteile</h5>
+
+<p>- Performance wird gesteigert
+	</p>
+	<p>
+- für jeden verständlich machen</p>
+
+<h5>Nachteile</h5>
+
+
+<p>- Änderungen / Verbesserungen werden nicht angezeigt
+	</p>
+	<p>- kaputtbar	</p>
+
  <h2>
 <li>Was sind die Refactoring-Schritte?</li>
     </h2>
