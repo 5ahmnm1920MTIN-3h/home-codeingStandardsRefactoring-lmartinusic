@@ -2,17 +2,21 @@
 
 public class PlayerController : MonoBehaviour
 {
+    // init variables
     Rigidbody2D rb;
-    Animator anim, anim2, anim3, anim4, anim5;
+    Animator anim;
+    bool grounded;
+    bool gameOver = false;
+    private string triggerJump = "Jump";
+    private string groundTag = "Ground";
+    private string obstacleTag = "Obstacle";
+    private string animDeath = "SantaDeath";
     [SerializeField] float jumpForce;
-    
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -20,48 +24,37 @@ public class PlayerController : MonoBehaviour
         {
             if (grounded == true)
             {
-                jump();
+                Jump();
             }
-
         }
     }
-
-    bool grounded;
-    bool gameOver = false;
-
-    void jump()
+    void Jump()
     {
         grounded = false;
-
         rb.velocity = Vector2.up * jumpForce;
-
-        anim.SetTrigger("Jump");
-
+        anim.SetTrigger(triggerJump);
         GameManager.instance.IncrementScore();
+        Debug.Log("DeleteMe");
     }
-
     private bool SetGameOverTrue()
     {
         return true;
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)   {
-        if(collision.gameObject.tag == "Ground")
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == groundTag)
         {
-            grounded = true;}
+            grounded = true;
+        }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Obstacle"){
+        if (collision.gameObject.tag == obstacleTag)
+        {
             GameManager.instance.GameOver();
             Destroy(collision.gameObject);
-            anim.Play("SantaDeath");
+            anim.Play(animDeath);
             gameOver = SetGameOverTrue();
         }
     }
-
-
-
-
 }
