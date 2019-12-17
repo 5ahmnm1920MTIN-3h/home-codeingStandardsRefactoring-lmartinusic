@@ -82,6 +82,7 @@
 
 <b>3. Zu komplexe/verwirrende Namensgebung</b>
 <p>Um Zeit und Verwirrung zu sparen sollten die vergebenen Namen immer Sinn ergeben und nach einem einheitlichen System ausgewählt sein.</p>
+
 ```c#
  public void _RstTheRslt1(){}
 public void retTheresult(){}
@@ -90,12 +91,14 @@ public void retTheresult(){}
 
 <b>4. Zu lange Namensgebung</b>
 <p>Um Zeit und Verwirrung zu sparen sollten die vergebenen Namen immer relativ kurz und aussagekräftig sein</p>
+
 ```c#
 public string = thisVariableIsAStringAndIsItsNameIsMaybeABitTooLong;
 ```
 
 <b>5. Zu kurze Namensgebung</b>
 <p>Auch zu kurze Namen können zu Unklarheit führen und sollten vermieden werden.</p>
+
 ```c#
 public GameObject = gO;
 ```
@@ -146,7 +149,7 @@ public int Add(int x, int y)
     return x + y;
     return 2 + 2;
 }
-``
+```
 
 <b>9. Unbenutzte Parameter</b>
 <p>Wenn Parameter in der Methode angegeben werden, müssen sie darin auch Verwendung finden.</p>
@@ -156,7 +159,7 @@ public int Add(int x, int y, int z)
 {
     return x + y;
 }
-``
+```
 
 <b>10. Tiefe Verschachtelungen</b>
 <p>Zu tiefe Verschachtelungen führen zu Verwirrung und Unverständlichkeit. </p>
@@ -177,6 +180,7 @@ do
     while(condition);
 }
 while(condition);
-``
+```
 <p></p>
+
 Copyright by Kathrin König & Leo Martinusic
