@@ -7,7 +7,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameObject gameOverPanel;
     public Text scoreText;
-    private int score;
+    private string mainScene = "MainScene";
+    private string menuScene = "MenuScene";
+    string defaultText;
+    int score = 0;
 
     private void Awake()
     {
@@ -16,7 +19,6 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
     }
-
     public void GameOver()
     {
         ObstacleSpawner.instance.gameOver = true;
@@ -28,20 +30,21 @@ public class GameManager : MonoBehaviour
     {
         TextureScroll[] scrollingObjects = FindObjectsOfType<TextureScroll>();
 
-        foreach (TextureScroll item in scrollingObjects)
+        foreach(TextureScroll item in scrollingObjects)
         {
             item.scroll = false;
+            Debug.Log(item.name);
         }
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene(mainScene);
     }
 
     public void Menu()
     {
-        SceneManager.LoadScene("MenuScene");
+        SceneManager.LoadScene(menuScene);
     }
 
     public void IncrementScore()
