@@ -212,11 +212,7 @@ Windows 10, Unity version 2019.1.14f1, Visual Studio Community 2017, Scripting R
 WebGl and Standalone, RefRes: 1920 * 1080
 
 ### Visuals: 
-<div>
-<img src = "./Screenshots/sketch-SantaRun.JPG" width = "500">
-</div>
 
-[![SANTA RUN](https://i9.ytimg.com/vi/2C74XxBkFfI/mq1.jpg?sqp=CNWnze8F&rs=AOn4CLBrmO-tJ3gQ2BNeMxvrmQcsIhhcgQ)](https://www.youtube.com/embed/2C74XxBkFfI "Santa RUN")
 
 https://www.youtube.com/embed/2C74XxBkFfI
 
