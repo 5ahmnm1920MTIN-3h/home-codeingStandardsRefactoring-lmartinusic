@@ -52,32 +52,131 @@
     </h2>
 <p></p>
 
-  <b>Code-Duplizierung</b>
-<p>Der gleiche Code kommt an verschiedenen Stellen vor.</p>
+  <b>1. Kommentare</b>
+<p>Kommentare sollen den Code für Andere leichter verständlich machen. Dabei sollten man sie in einer angemessenen Menge einsetzen, weil ein Überschuss an Kommentaren wiederrum zu Unübersichtlichkeit führt. Die Formulierung der Kommentaren selbst sollte für Menschen verständlich sein</p>
 
-  <b>Lange Methode</b>
+```c#
+// Calling function 
+        Message(msg); 
+```
+
+  <b>2. Zu lange Methoden</b>
 <p>Eine Methode (Funktion, Prozedur) ist zu lang.</p>
 
-<b>Große Klasse</b>
-<p>Eine Klasse ist zu umfangreich, umfasst zu viele Instanzvariablen und duplizierten Code. Siehe auch Gottobjekt.</p>
+```c#
+  void Start()
+    {
+        varA = 5;
+        varB = 4;
+        AddNumbers(varA, varB);
+        AddNumbers(4, 7);
+        Debug.Log("in Start: " + AddNumbers(varA, varB));
+        Debug.Log("in Start: " + AddNumbers(4, 7));
+        Debug.Log(10 - AddNumbers(varA, varB));
+        Debug.Log(100 - AddNumbers(4, 7));
+        
+    }
+```
 
-<b>Lange Parameterliste</b>
-<p>Anstatt ein Objekt an eine Methode zu übergeben, werden Objekt-Attribute extrahiert und der Methode als lange Parameterliste übergeben.</p>
 
-<b>Divergierende Änderungen</b>
-<p>Für eine Änderung muss eine Klasse an mehreren Stellen angepasst werden.</p>
+
+<b>3. Zu komplexe/verwirrende Namensgebung</b>
+<p>Um Zeit und Verwirrung zu sparen sollten die vergebenen Namen immer Sinn ergeben und nach einem einheitlichen System ausgewählt sein.</p>
+```c#
+ public void _RstTheRslt1(){}
+public void retTheresult(){}
+```
+
+
+<b>4. Zu lange Namensgebung</b>
+<p>Um Zeit und Verwirrung zu sparen sollten die vergebenen Namen immer relativ kurz und aussagekräftig sein</p>
+```c#
+public string = thisVariableIsAStringAndIsItsNameIsMaybeABitTooLong;
+```
+
+<b>5. Zu kurze Namensgebung</b>
+<p>Auch zu kurze Namen können zu Unklarheit führen und sollten vermieden werden.</p>
+```c#
+public GameObject = gO;
+```
+
+
   
-<b>Datenklumpen</b>
-<p>Eine Gruppe von Objekten kommt häufig zusammen vor: als Felder in einigen Klassen und als Parameter vieler Methoden.</p>
+<b>6. Doppelter Code</b>
+<p>Manche Schritte können einfach zusammengefasst werden, wodurch man an Zeit sparen kann und einen übersichtlicheren Code verfasst.</p>
 
-<b>Parallele Vererbungshierarchien</b>
-<p>Zu jeder Unterklasse in der einen Hierarchie gibt es immer auch eine Unterklasse in einer anderen Hierarchie.</p>
+```c#
+protected void SetBlueBoxVisibility(bool blueBoxVisibility)
+    {
+        Project project = LoadProject();
+        project.ShowBlueBox = blueBoxVisibility
+        ReDrawSomeThings();
+        ShowBlueBoxPanel(blueBoxVisibility);
+        RaiseStatusUpdated();
+    }
 
-<b>Faule Klasse</b>
-<p>Eine Klasse leistet zu wenig, um ihre Existenz zu rechtfertigen.</p>
+    protected void SetRedBoxVisibility(bool redBoxVisibility)
+    {
+        Project project = LoadProject();
+        project.ShowRedBox = redBoxVisibility
+        ReDrawSomeThings();
+        ShowRedBoxPanel(redBoxVisibility);
+        RaiseStatusUpdated();
+    }
+```
 
-<b>Spekulative Allgemeinheit</b>
-<p>Es wurden alle möglichen Spezialfälle vorgesehen, die gar nicht benötigt werden; solch allgemeiner Code braucht Aufwand in der Pflege, ohne dass er etwas nützt.</p>
 
-<b>Temporäre Felder</b>
-<p>Ein Objekt verwendet eine Variable nur unter bestimmten Umständen – der Code ist schwer zu verstehen und zu debuggen, weil das Feld scheinbar nicht verwendet wird. </p>
+<b>7. Unbenutzte NameSpaces</b>
+<p>Unnötige NameSpaces sollten möglichst gelöscht werden, um Verwirrung und Probleme zu vermeiden.</p>
+
+```c#
+using UnityEngine;
+using UnityEngine.UI;
+using System;
+using System.Collections;
+``
+
+<b>8. Unerreichbarer Code</b>
+<p>Unbenutzer Code verschwendet Rechenzeit und Speicher.</p>
+
+
+```c#
+public int Add(int x, int y)
+{
+    return x + y;
+    return 2 + 2;
+}
+``
+
+<b>9. Unbenutzte Parameter</b>
+<p>Wenn Parameter in der Methode angegeben werden, müssen sie darin auch Verwendung finden.</p>
+
+```c#
+public int Add(int x, int y, int z)
+{
+    return x + y;
+}
+``
+
+<b>10. Tiefe Verschachtelungen</b>
+<p>Zu tiefe Verschachtelungen führen zu Verwirrung und Unverständlichkeit. </p>
+
+```c#
+do 
+{   
+    statement(s);
+    do 
+    {  
+        statement(s);
+        do
+	{
+	    statement(s)
+	}
+	while(condition);
+    }
+    while(condition);
+}
+while(condition);
+``
+<p></p>
+Copyright by Kathrin König & Leo Martinusic
